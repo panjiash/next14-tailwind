@@ -15,7 +15,7 @@ export default async function Products(props: ProductsPageProps) {
               <Link
                 href={"/products/detail/" + product.id}
                 key={product.id}
-                className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-5"
+                className="w-11/12 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-5"
               >
                 <img
                   className="p-8 rounded-t-lg object-cover h-96 w-full"
