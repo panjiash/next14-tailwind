@@ -36,7 +36,7 @@ export default function RegisterPage() {
         {error !== "" && (
           <div className="text-red-600 font-bold mb-3">{error}</div>
         )}
-        <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm p-4 sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div className="bg-white shadow-md border border-gray-200 rounded-lg w-96 p-4 sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
           <form className="space-y-6" onSubmit={(e) => handleSubmit(e)}>
             <h3 className="text-xl font-medium text-gray-900 dark:text-white">
               Sign up to our platform
