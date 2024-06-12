@@ -15,7 +15,7 @@ export default function RegisterPage() {
     const res = await fetch("/api/auth/register", {
       method: "POST",
       body: JSON.stringify({
-        fullname: e.target.fullname.value,
+        name: e.target.name.value,
         email: e.target.email.value,
         password: e.target.password.value,
       }),
@@ -43,15 +43,15 @@ export default function RegisterPage() {
             </h3>
             <div>
               <label
-                htmlFor="fullname"
+                htmlFor="name"
                 className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
               >
                 Full Name
               </label>
               <input
                 type="text"
-                name="fullname"
-                id="fullname"
+                name="name"
+                id="name"
                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="John Doe"
                 required

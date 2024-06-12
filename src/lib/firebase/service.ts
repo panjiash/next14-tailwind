@@ -31,7 +31,7 @@ export async function retrieveDataById(collectionName: string, id: string) {
 }
 
 export async function register(data: {
-  fullname: string;
+  name: string;
   email: string;
   password: string;
   role?: string;
@@ -48,7 +48,7 @@ export async function register(data: {
   if (users.length > 0) {
     return { status: false, statusCode: 400, message: "Email already exists!" };
   } else {
-    data.role = "user";
+    data.role = "admin";
     data.password = await bcrypt.hash(data.password, 10);
 
     try {

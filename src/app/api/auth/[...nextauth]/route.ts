@@ -1,4 +1,6 @@
-import { login, loginWithGoogle } from "@/lib/firebase/service";
+// import { loginWithGoogle } from "@/lib/firebase/service";
+import { loginWithGoogle } from "@/lib/mysql/auth";
+import { login } from "@/lib/mysql/auth";
 import { compare } from "bcrypt";
 import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
@@ -46,23 +48,23 @@ const authOptions: NextAuthOptions = {
     async jwt({ token, account, profile, user }: any) {
       if (account?.provider === "credentials") {
         token.email = user.email;
-        token.fullname = user.fullname;
+        token.name = user.name;
         token.role = user.role;
       }
       if (account?.provider === "google") {
         const data = {
-          fullname: user.name,
+          name: user.name,
           email: user.email,
-          type: "google",
+          login_type: "google",
         };
         await loginWithGoogle(
           data,
           (result: { status: boolean; data: any }) => {
             if (result.status) {
               token.email = result.data.email;
-              token.fullname = result.data.fullname;
+              token.name = result.data.name;
               token.role = result.data.role;
-              token.type = result.data.type;
+              token.login_type = result.data.login_type;
             }
           }
         );
@@ -73,8 +75,8 @@ const authOptions: NextAuthOptions = {
       if ("email" in token) {
         session.user.email = token.email;
       }
-      if ("fullname" in token) {
-        session.user.fullname = token.fullname;
+      if ("name" in token) {
+        session.user.name = token.name;
       }
       if ("role" in token) {
         session.user.role = token.role;

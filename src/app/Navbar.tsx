@@ -61,7 +61,7 @@ export default function Navbar() {
       <div>
         {status === "authenticated" ? (
           <div className="flex">
-            <h4 className="text-white mr-3">{session.user.fullname}</h4>
+            <h4 className="text-white mr-3">{session.user.name}</h4>
             <button
               className="bg-white rounded-md px-3 text-sm h-7 cursor-pointer"
               onClick={() => signOut()}
